@@ -89,4 +89,17 @@ RSpec.describe(BowlingGame) do
             expect(@game.score).to eq(24)
         end
     end
+
+    context "When testing BowlingGame class with a perfect game of all strikes" do
+        
+        before(:each) do
+            @game = BowlingGame.new
+        end
+
+        it "should roll all strikes and have a score of 300", positive: true do
+            roll_many({ turns: 12, pins: 10, game: @game })
+
+            expect(@game.score).to eq(300)
+        end
+    end
 end
