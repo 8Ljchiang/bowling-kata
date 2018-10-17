@@ -58,7 +58,7 @@ RSpec.describe(BowlingGame) do
 
         it "should roll one spare in the game and have a score of 16", positive: true do
             @game.roll(5)
-            @game.roll(5)
+            @game.roll(5) # Rolling spare
             @game.roll(3)
             roll_many({ turns: 17, pins: 0, game: @game })
 
