@@ -12,7 +12,7 @@ RSpec.describe(BowlingGame) do
     end
 
     context "When testing BlowingGame glass" do
-        it "should initialize a new object", positive: true do
+        it "should initialize a new object", initialize: true do
             game = BowlingGame.new
             expect(game).to_not be(nil)
         end
@@ -24,7 +24,7 @@ RSpec.describe(BowlingGame) do
             @game = BowlingGame.new
         end
 
-        it "should have a score of 0", negative: true do
+        it "should have a score of 0", positive: true do
             turns = 20
             pins = 0
 
@@ -49,4 +49,21 @@ RSpec.describe(BowlingGame) do
             expect(@game.score()).to eq(20)
         end
     end
+    
+    context "When testing BowlingGame class with a game that throws a spare" do
+        
+        before(:each) do
+            @game = BowlingGame.new
+        end
+
+        it "should roll one spare in the game and have a score of 16", positive: true do
+            @game.roll(5)
+            @game.roll(5)
+            @game.roll(3)
+            roll_many({ turns: 17, pins: 0, game: @game })
+
+            expect(@game.score).to eq(16)
+        end
+    end
+
 end
