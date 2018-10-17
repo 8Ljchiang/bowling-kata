@@ -10,7 +10,7 @@ class BowlingGame
             @roll_index += 1
             @rolls.push(pins)
         elsif (pins == 10)
-            @roll_index ++
+            @roll_index += 1
             @rolls.push(pins)
         end
     end
