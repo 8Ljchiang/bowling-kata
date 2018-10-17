@@ -11,6 +11,11 @@ RSpec.describe(BowlingGame) do
         end
     end
 
+    def roll_spare(args={})
+        args[:game].roll(5)
+        args[:game].roll(5)
+    end
+
     context "When testing BlowingGame glass" do
         it "should initialize a new object", initialize: true do
             game = BowlingGame.new
@@ -57,13 +62,11 @@ RSpec.describe(BowlingGame) do
         end
 
         it "should roll one spare in the game and have a score of 16", positive: true do
-            @game.roll(5)
-            @game.roll(5) # Rolling spare
+            roll_spare({ game: @game })
             @game.roll(3)
             roll_many({ turns: 17, pins: 0, game: @game })
 
             expect(@game.score).to eq(16)
         end
     end
-
 end
