@@ -1,4 +1,5 @@
-require_relative './bowling_game.rb'
+# require_relative './bowling_game.rb'
+require_relative './bowling_game_refac.rb'
 
 RSpec.describe(BowlingGame) do
 
