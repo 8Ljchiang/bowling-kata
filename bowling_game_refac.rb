@@ -25,13 +25,6 @@ class BowlingGame
             
             counter += 1
         end
-        # for i in 0..@frames.length-1 do
-        #     if (!@frames[i].is_full) 
-        #         newRoll = Roll.new(pins)
-        #         @frames[i].add_roll(newRoll)
-        #         break
-        #     end
-        # end
     end
 
     def score
